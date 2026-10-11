@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: kubedemoapp
-          image: shreyachundi/library_app:new
+          image: shreyachundi/library-app:new
           imagePullPolicy: Always
           ports:
             - containerPort: 5001

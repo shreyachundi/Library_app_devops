@@ -16,8 +16,8 @@ pipeline {
         stage('Push Docker Image to Docker Hub') {
             steps {
                 echo "Push Docker Image to Docker Hub"
-                sh "docker tag libraryapp:v1 shreyachundi/library_app:new"
-                sh "docker push shreyachundi/library_app:new"
+                sh "docker tag libraryapp:v1 shreyachundi/library-app:new"
+                sh "docker push shreyachundi/library-app:new"
             }
         }
         stage('Deploy to Kubernetes') {
