@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kubedemoapp-deployment
+  name: libraryapp-deployment
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: kubedemoapp
+      app: libraryapp
   template:
     metadata:
       labels:
-        app: kubedemoapp
+        app: libraryapp
     spec:
       containers:
-        - name: kubedemoapp
+        - name: libraryapp
           image: shreyachundi/library-app:new
           imagePullPolicy: Always
           ports:

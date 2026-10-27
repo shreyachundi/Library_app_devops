@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: kubedemoapp-service
+  name: libraryapp-service
 spec:
   selector:
-    app: kubedemoapp
+    app: libraryapp
   ports:
     - protocol: TCP
       port: 5001

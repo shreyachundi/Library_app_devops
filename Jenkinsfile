@@ -8,6 +8,16 @@ pipeline {
                 sh "docker build -t libraryapp:v1 ."
             }
         }
+        stage('Run Selenium Tests') {
+            steps {
+                echo "Run Selenium Tests"
+                sh 'python3 -m pip install -r requirements.txt'
+                sh 'python3 app.py &'
+                sh 'sleep 5'
+                sh 'python3 -m pytest -v'
+                
+            }
+        }
         stage('Docker Login') {
             steps {
                 sh 'docker login -u shreyachundi -p Karthikeya@011'
