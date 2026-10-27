@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
-# In-memory storage (no DB needed → keeps pipeline simple)
 books = [
     {"id": 1, "title": "Clean Code", "author": "Robert C. Martin", "available": True},
     {"id": 2, "title": "The DevOps Handbook", "author": "Gene Kim", "available": True},
@@ -11,7 +10,6 @@ books = [
 next_id = 4
 
 
-# ---------- Page 1: Home ----------
 @app.route('/')
 def home():
     total = len(books)
@@ -22,8 +20,6 @@ def home():
                            available=available,
                            issued=issued)
 
-
-# ---------- Page 2: Add Book ----------
 @app.route('/add', methods=['GET', 'POST'])
 def add_book():
     global next_id
@@ -41,14 +37,10 @@ def add_book():
         return redirect('/books')
     return render_template('add_book.html')
 
-
-# ---------- Page 3: View Books ----------
 @app.route('/books')
 def view_books():
     return render_template('view_books.html', books=books)
 
-
-# ---------- Extra actions (still part of page 3) ----------
 @app.route('/issue/<int:book_id>')
 def issue_book(book_id):
     for b in books:
