@@ -15,6 +15,5 @@ spec:
       containers:
         - name: libraryapp
           image: shreyachundi/library-app:new
-          imagePullPolicy: Always
           ports:
             - containerPort: 5001
